@@ -11,7 +11,7 @@
   		<table class='table'>
   		  <tr>
           <td><%= link_to(@book.user) do %>
-            <%= image_tag @book.user.get_profile_image(100,100) %><br>
+            <%= image_tag @book.user.get_profile_image, size:"100x100" %><br>
             <%= @book.user.name %>
             <% end %>
           </td>
@@ -42,7 +42,7 @@
           <tr>
             <td>
               <%= link_to user_path(book_comment.user) do %>
-                <%= image_tag book_comment.user.get_profile_image(50,50) %><br>
+                <%= image_tag book_comment.user.get_profile_image, size:'100x100' %><br>
                 <%= book_comment.user.name %>
               <% end %>
             </td>
@@ -57,8 +57,8 @@
       </table>
       <div>
         <%= form_with model: [@book,@book_comment], method: :post do |f| %>
-          <%= f.text_area :comment, size: "90x6" %><br>
-          <%= f.submit "送信" %>
+          <%= f.text_area :comment, rows:'5', class: "w-100" %>
+          <%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
         <% end %>
       </div>
     </div>
